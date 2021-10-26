@@ -6,6 +6,7 @@
 #include <random>
 #include <vector>
 #include <stdexcept>
+#include "Source.h"
 
 using namespace std;
 
@@ -96,25 +97,23 @@ vector<double> tabu_search(function<double(vector<double>)> f, function<bool(vec
 	return tabu_list.back();
 }
 
-
-
 int main() {
 
 	int wybor;
 	int a;
 
-	cout << "Wybierz funkcje: Beale 1, Himmelblau 2: ";
+	cout << "Wybierz funkcje: \n1) Beale \n2) Himmelblau \n3) Porownianie dwoch funkcji na raz \n : ";
 	cin >> wybor;
 
 	switch (wybor) {
 	case 1: {
 		auto beale = [](vector<double> v) {
 			double x = v.at(0), y = v.at(1);
-			return sqrt(1.5 - x + x * y) + sqrt(2.25 - x + x * sqrt(y)) + sqrt(2.625 - x + x * pow(y, 3));
+			return pow((1.5 - x + x * y),2) + pow((2.25 - x + x * pow(y,2)),2) + pow((2.625 - x + x * pow(y, 3)),2);
 		};
 
 		auto beale_domain = [](vector<double> v) {
-			return (abs(v[0]) <= -4.5) && (abs(v[1]) <= 4.5);
+			return (abs(v[0]) <= 4.5) && (abs(v[1]) <= 4.5);
 		};
 
 		uniform_real_distribution<> distrib_r(-4.5, 4.5);
@@ -138,11 +137,11 @@ int main() {
 	case 2: {
 		auto himmelblau = [](vector<double> v) {
 			double x = v.at(0), y = v.at(1);
-			return sqrt(sqrt(x) + y - 11) + sqrt(x + sqrt(y) - 7);
+			return pow((pow(x,2) + y - 11),2) + pow((x + pow(y,2) - 7),2);
 		};
 
 		auto himmelablau_domain = [](vector<double> v) {
-			return (abs(v[0]) <= -5) && (abs(v[1]) <= 5);
+			return (abs(v[0]) <= 5) && (abs(v[1]) <= 5);
 		};
 
 		uniform_real_distribution<> distrib_r(-5, 5);
@@ -156,6 +155,7 @@ int main() {
 		if (a == 1) {
 			auto result = hill_climbing(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
 			cout << result << " -> " << himmelblau(result) << endl;
+			
 		}
 		else {
 			auto result = tabu_search(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
@@ -163,8 +163,54 @@ int main() {
 		}
 		break;
 	}
+	case 3: {
+		auto himmelblau = [](vector<double> v) {
+			double x = v.at(0), y = v.at(1);
+			return pow((pow(x, 2) + y - 11), 2) + pow((x + pow(y, 2) - 7), 2);
+		};
+
+		auto himmelablau_domain = [](vector<double> v) {
+			return (abs(v[0]) <= 5) && (abs(v[1]) <= 5);
+		};
+
+		uniform_real_distribution<> distrib_r(-5, 5);
+		vector<double> himmeblau_p0 = {
+			distrib_r(mt_generator),
+			distrib_r(mt_generator),
+		};
+
+		int dif = 0;
+		int dif1 = 0;
+		int n = 1;
+		for (int i = 0; i <= n; i++)
+		{
+			auto result = hill_climbing(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
+			cout << result << " -> " << himmelblau(result) << endl;
+			dif++;
+		}
+		cout << " ----------------------------------- " << endl;
+		for (int i = 0; i <= n; i++)
+		{
+			auto result = tabu_search(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
+			cout << result << " -> " << himmelblau(result) << endl;
+			dif1++;
+		}
+		cout << dif << endl;
+		cout << dif1 << endl;
+		if (dif < dif1) {
+			cout << "Lepszy wynik pokazal method: hill_climbing";
+		}
+		else if (dif > dif1) {
+			cout << "Lepszy wynik pokazal method: tabu_search";
+		}
+		else {
+			cout << "Remis";
+		}
+
+		break;
+	}
 	default: {
-		cout << "Wybierz 1 lub 2.";
+		cout << "Wybierz 1, 2 lub 3.";
 		break;
 	}
 	}
