@@ -6,7 +6,6 @@
 #include <random>
 #include <vector>
 #include <stdexcept>
-#include "Source.h"
 
 using namespace std;
 
@@ -27,18 +26,18 @@ vector<double> hill_climbing(function<double(vector<double>)> f, function<bool(v
 	uniform_int_distribution<> distrib(0, p.size() - 1);
 	uniform_real_distribution<> distrib_r(-0.1, 0.1);
 
-	
+
 	if (!f_domain(p)) throw std::invalid_argument("The p0 point must be in domain");
 	for (int i = 0; i < iterations; i++) {
 		auto p2 = p;
-		
+
 		p2[distrib(mt_generator)] += distrib_r(mt_generator);
-			double y2 = f(p2);
-			if (y2 < f(p)) {
-				p = p2;
-			}
+		double y2 = f(p2);
+		if (y2 < f(p)) {
+			p = p2;
 		}
-		
+	}
+
 	return p;
 }
 
@@ -97,19 +96,58 @@ vector<double> tabu_search(function<double(vector<double>)> f, function<bool(vec
 	return tabu_list.back();
 }
 
+vector<double> simulated_annealing(
+	function<double(vector<double>)> f,
+	function<bool(vector<double>)> f_domain,
+	vector<double> p0,
+	int iterations,
+	function<vector<double>(vector<double>)> N,
+	function<double(int)> T)
+{
+	auto s_current = p0;
+	auto s_global_best = p0;
+
+	//    uniform_int_distribution<> distrib(0, p.size() - 1);
+	uniform_real_distribution<> u_k(0.0, 1.0);
+
+	if (!f_domain(s_current)) throw std::invalid_argument("The p0 point must be in domain");
+
+	for (int k = 0; k < iterations; k++) {
+		auto s_next = N(s_current);
+		if (f(s_next) < f(s_current)) {
+			s_current = s_next;
+		}
+		else {
+			double u = u_k(mt_generator);
+			if (u < exp(-abs(f(s_next) - f(s_current)) / T(k))) {
+				s_current = s_next;
+			}
+			else {
+				// nothing...
+			}
+		}
+		if (f(s_current) < f(s_global_best)) {
+			s_global_best = s_current;
+		}
+		//        cout << k << " " << f(s_current) << endl;
+		cout << s_current << " " << f(s_current) << endl;
+	}
+	return s_global_best;
+}
+
 int main() {
 
 	int wybor;
 	int a;
 
-	cout << "Wybierz funkcje: \n1) Beale \n2) Himmelblau \n3) Porownianie dwoch funkcji na raz \n : ";
+	cout << "Wybierz funkcje: \n1) Beale \n2) Himmelblau \n3) Porownianie method na przykladzie Beale function \n4) Porownianie method na przykladzie Himmeblau function \n : ";
 	cin >> wybor;
 
 	switch (wybor) {
 	case 1: {
 		auto beale = [](vector<double> v) {
 			double x = v.at(0), y = v.at(1);
-			return pow((1.5 - x + x * y),2) + pow((2.25 - x + x * pow(y,2)),2) + pow((2.625 - x + x * pow(y, 3)),2);
+			return pow((1.5 - x + x * y), 2) + pow((2.25 - x + x * pow(y, 2)), 2) + pow((2.625 - x + x * pow(y, 3)), 2);
 		};
 
 		auto beale_domain = [](vector<double> v) {
@@ -122,48 +160,32 @@ int main() {
 			distrib_r(mt_generator),
 		};
 
-		cout << "Wybierz metod. Hill climbing 1, Tabu Search 2: ";
+		cout << "Wybierz metod. Hill climbing 1, Tabu Search 2, Simulated Annealing 3: ";
 		cin >> a;
 		if (a == 1) {
 			auto result = hill_climbing(beale, beale_domain, beale_p0, 1000);
 			cout << result << " -> " << beale(result) << endl;
 		}
-		else {
+		else if(a == 2) {
 			auto result = tabu_search(beale, beale_domain, beale_p0, 1000);
+			cout << result << " -> " << beale(result) << endl;
+		}
+		else {
+			auto result = simulated_annealing(
+				beale, beale_domain, beale_p0, 10000,
+				[](auto p) {
+					normal_distribution<double> n(0.0, 0.3);
+					for (auto& e : p) {
+						e = e + n(mt_generator);
+					}
+					return p;
+				},
+				[](int k) { return 1000.0 / k; });
 			cout << result << " -> " << beale(result) << endl;
 		}
 		break;
 	}
 	case 2: {
-		auto himmelblau = [](vector<double> v) {
-			double x = v.at(0), y = v.at(1);
-			return pow((pow(x,2) + y - 11),2) + pow((x + pow(y,2) - 7),2);
-		};
-
-		auto himmelablau_domain = [](vector<double> v) {
-			return (abs(v[0]) <= 5) && (abs(v[1]) <= 5);
-		};
-
-		uniform_real_distribution<> distrib_r(-5, 5);
-		vector<double> himmeblau_p0 = {
-			distrib_r(mt_generator),
-			distrib_r(mt_generator),
-		};
-
-		cout << "Wybierz metod. Hill climbing 1, Tabu Search 2: ";
-		cin >> a;
-		if (a == 1) {
-			auto result = hill_climbing(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
-			cout << result << " -> " << himmelblau(result) << endl;
-			
-		}
-		else {
-			auto result = tabu_search(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
-			cout << result << " -> " << himmelblau(result) << endl;
-		}
-		break;
-	}
-	case 3: {
 		auto himmelblau = [](vector<double> v) {
 			double x = v.at(0), y = v.at(1);
 			return pow((pow(x, 2) + y - 11), 2) + pow((x + pow(y, 2) - 7), 2);
@@ -179,38 +201,105 @@ int main() {
 			distrib_r(mt_generator),
 		};
 
-		int dif = 0;
-		int dif1 = 0;
-		int n = 1;
-		for (int i = 0; i <= n; i++)
+		cout << "Wybierz metod. Hill climbing 1, Tabu Search 2, Simulated Annealing 3: ";
+		cin >> a;
+		if (a == 1) {
+			auto result = hill_climbing(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
+			cout << result << " -> " << himmelblau(result) << endl;
+
+		}
+		else if (a == 2) {
+			auto result = tabu_search(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
+			cout << result << " -> " << himmelblau(result) << endl;
+		}
+		else {
+			auto result = simulated_annealing(
+				himmelblau, himmelablau_domain, himmeblau_p0, 10000,
+				[](auto p) {
+					normal_distribution<double> n(0.0, 0.3);
+					for (auto& e : p) {
+						e = e + n(mt_generator);
+					}
+					return p;
+				},
+				[](int k) { return 1000.0 / k; });
+			cout << result << " -> " << himmelblau(result) << endl;
+		}
+		break;
+	}
+	case 3: {
+		auto beale = [](vector<double> v) {
+			double x = v.at(0), y = v.at(1);
+			return pow((1.5 - x + x * y), 2) + pow((2.25 - x + x * pow(y, 2)), 2) + pow((2.625 - x + x * pow(y, 3)), 2);
+		};
+
+		auto beale_domain = [](vector<double> v) {
+			return (abs(v[0]) <= 4.5) && (abs(v[1]) <= 4.5);
+		};
+
+		uniform_real_distribution<> distrib_r(-4.5, 4.5);
+		vector<double> beale_p0 = {
+			distrib_r(mt_generator),
+			distrib_r(mt_generator),
+		};
+
+
+		auto result = hill_climbing(beale, beale_domain, beale_p0, 1000);
+		
+
+		//3.0 0.5
+
+		break;
+	}
+	case 4: {
+		auto himmelblau = [](vector<double> v) {
+			double x = v.at(0), y = v.at(1);
+			return pow((pow(x, 2) + y - 11), 2) + pow((x + pow(y, 2) - 7), 2);
+		};
+
+		auto himmelablau_domain = [](vector<double> v) {
+			return (abs(v[0]) <= 5) && (abs(v[1]) <= 5);
+		};
+
+		uniform_real_distribution<> distrib_r(-5, 5);
+		vector<double> himmeblau_p0 = {
+			distrib_r(mt_generator),
+			distrib_r(mt_generator),
+		};
+
+		for (int i = 0; i <= 0; i++)
+		{
+			auto result = simulated_annealing(
+				himmelblau, himmelablau_domain, himmeblau_p0, 10000,
+				[](auto p) {
+					normal_distribution<double> n(0.0, 0.3);
+					for (auto& e : p) {
+						e = e + n(mt_generator);
+					}
+					return p;
+				},
+				[](int k) { return 1000.0 / k; });
+			cout << result << " -> " << himmelblau(result) << endl;
+			auto himasim = result;
+		}
+		cout << " ----------------------------------- " << endl;
+		for (int i = 0; i <= 0; i++)
 		{
 			auto result = hill_climbing(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
 			cout << result << " -> " << himmelblau(result) << endl;
-			dif++;
+			auto himahill = result;
 		}
-		cout << " ----------------------------------- " << endl;
-		for (int i = 0; i <= n; i++)
-		{
-			auto result = tabu_search(himmelblau, himmelablau_domain, himmeblau_p0, 1000);
-			cout << result << " -> " << himmelblau(result) << endl;
-			dif1++;
-		}
-		cout << dif << endl;
-		cout << dif1 << endl;
-		if (dif < dif1) {
-			cout << "Lepszy wynik pokazal method: hill_climbing";
-		}
-		else if (dif > dif1) {
-			cout << "Lepszy wynik pokazal method: tabu_search";
-		}
-		else {
-			cout << "Remis";
-		}
+
+		cout << "wynik powinien dążyć do: \n 3.0 2.0 \n -2.805118 3.131312 \n -3.779310 -3.283186 \n 3.584428 -1.848126";
+		// 3.0 2.0
+		// -2.805118 3.131312
+		// -3.779310 -3.283186
+		// 3.584428 -1.848126
 
 		break;
 	}
 	default: {
-		cout << "Wybierz 1, 2 lub 3.";
+		cout << "Wybierz 1, 2, 3 lub 4.";
 		break;
 	}
 	}
