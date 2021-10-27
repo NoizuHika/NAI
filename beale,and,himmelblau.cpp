@@ -244,8 +244,30 @@ int main() {
 		};
 
 
-		auto result = hill_climbing(beale, beale_domain, beale_p0, 1000);
-		
+		for (int i = 0; i <= 0; i++)
+		{
+			auto result = simulated_annealing(
+				beale, beale_domain, beale_p0, 10000,
+				[](auto p) {
+					normal_distribution<double> n(0.0, 0.3);
+					for (auto& e : p) {
+						e = e + n(mt_generator);
+					}
+					return p;
+				},
+				[](int k) { return 1000.0 / k; });
+			cout << result << " -> " << beale(result) << endl;
+			auto himasim = result;
+		}
+		cout << " ----------------------------------- " << endl;
+		for (int i = 0; i <= 0; i++)
+		{
+			auto result = hill_climbing(beale, beale_domain, beale_p0, 1000);
+			cout << result << " -> " << beale(result) << endl;
+			auto himahill = result;
+		}
+
+		cout << "wynik powinien dążyć do: 3.0 0.5";
 
 		//3.0 0.5
 
