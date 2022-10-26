@@ -140,7 +140,7 @@ int main() {
 	int wybor;
 	int a;
 
-	cout << "Wybierz funkcje: \n1) Beale \n2) Himmelblau \n3) Matyas \n4) Porownianie method na przykladzie Beale function \n5) Porownianie method na przykladzie Himmeblau function \n : ";
+	cout << "Wybierz funkcje: \n1) Beale \n2) Himmelblau \n3) Matyas \n4) Porownianie method na przykladzie Beale function \n5) Porownianie method na przykladzie Himmeblau function \n6) Porownianie method na przykladzie Matyas function \n : ";
 	cin >> wybor;
 
 	switch (wybor) {
@@ -311,7 +311,7 @@ int main() {
 			auto himahill = result;
 		}
 
-		cout << "wynik powinien dążyć do: 3.0 0.5";
+		cout << "wynik powinien dazyc do: 3.0 0.5";
 
 		//3.0 0.5
 
@@ -356,7 +356,7 @@ int main() {
 			auto himahill = result;
 		}
 
-		cout << "wynik powinien dążyć do: \n 3.0 2.0 \n -2.805118 3.131312 \n -3.779310 -3.283186 \n 3.584428 -1.848126";
+		cout << "wynik powinien dazyc do: \n 3.0 2.0 \n -2.805118 3.131312 \n -3.779310 -3.283186 \n 3.584428 -1.848126";
 		// 3.0 2.0
 		// -2.805118 3.131312
 		// -3.779310 -3.283186
@@ -364,8 +364,58 @@ int main() {
 
 		break;
 	}
+        case 6: {
+            auto matyas = [](vector<double> v) {
+                double x = v.at(0);
+                double y = v.at(1);
+                double results;
+                results = 0.26*(pow(x,2) + pow(y,2) - 0.48*x*y);
+                return results;
+            };
+
+            auto matyasDomain = [](vector<double> v) {
+                return (v[0] >= -10 && v[1] <=10);
+            };
+
+            uniform_real_distribution<> distrib_r(-10, 10);
+            vector<double> matyas_p0 = {
+                    distrib_r(mt_generator),
+                    distrib_r(mt_generator),
+            };
+
+            for (int i = 0; i <= 0; i++)
+            {
+                auto result = simulated_annealing(
+                        matyas, matyasDomain, matyas_p0, 10000,
+                        [](auto p) {
+                            normal_distribution<double> n(0.0, 0.3);
+                            for (auto& e : p) {
+                                e = e + n(mt_generator);
+                            }
+                            return p;
+                        },
+                        [](int k) { return 1000.0 / k; });
+                cout << result << " -> " << matyas(result) << endl;
+                auto himasim = result;
+            }
+            cout << " ----------------------------------- " << endl;
+            for (int i = 0; i <= 0; i++)
+            {
+                auto result = hill_climbing(matyas, matyasDomain, matyas_p0, 1000);
+                cout << result << " -> " << matyas(result) << endl;
+                auto himahill = result;
+            }
+
+            cout << "wynik powinien dazyc do: \n 0 0";
+            // 3.0 2.0
+            // -0.00009  -0.00005
+            // 0.00065 -0.00034
+            // 0.00005 0.00009
+
+            break;
+        }
 	default: {
-		cout << "Wybierz 1, 2, 3, 4 lub 5.";
+		cout << "Wybierz 1, 2, 3, 4, 5 lub 6.";
 		break;
 	}
 	}
