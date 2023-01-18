@@ -1,0 +1,3 @@
+D:/Programming/NAI/NAIGA/cmake-build-debug/CMakeFiles/NAIGA.dir
+D:/Programming/NAI/NAIGA/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Programming/NAI/NAIGA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
