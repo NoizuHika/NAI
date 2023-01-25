@@ -1,0 +1,5 @@
+"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe" -G Ninja -S Z:\git\NAIGRA -B Z:\git\NAIGRA\cmake-build-debug
+-- Found OpenCV: D:/pantadeusz/bb/opencv-4.x/cmake-build-release (found version "4.6.0") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: Z:/git/NAIGRA/cmake-build-debug
