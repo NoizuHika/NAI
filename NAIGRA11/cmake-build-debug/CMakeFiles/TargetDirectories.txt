@@ -1,0 +1,3 @@
+Z:/git/NAIGRA/cmake-build-debug/CMakeFiles/ocvdemo.dir
+Z:/git/NAIGRA/cmake-build-debug/CMakeFiles/edit_cache.dir
+Z:/git/NAIGRA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
