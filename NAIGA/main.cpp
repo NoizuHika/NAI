@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 
-const int lower_bounded = -10; //dolny zakres wartosci (do elementu wektora rozwiazania)
-const int upper_bound = 10; //gorny
+const int lower_bounded = -5.12; //dolny zakres wartosci (do elementu wektora rozwiazania)
+const int upper_bounded = 5.12; //gorny
 const int num_coords = 3; //liczba wspolrzednych wektora
 
 vector<int> gray_encode(vector<int> binary) { //przyjmuje wektor liczb calkowitych i zwraca wektor po kodowaniu Graya
@@ -54,7 +55,7 @@ vector<double> decode(vector<int> genotype) {
         //Ta linijka konwertuje wartość dziesiętną na wartość rzeczywistą, reprezentującą współrzędną rozwiązania.
         // Przede wszystkim zmienna value jest dzielona przez (pow(2, (num_bits / num_coords)) - 1) aby otrzymać wartość proporcjonalną.
         // Następnie mnoży się ją przez (upper_bound - lower_bound) i dodaje (lower_bound) aby otrzymać końcową wartość rzeczywistą.
-        solution[i] = lower_bounded + (upper_bound - lower_bounded) * ((double) value / (pow(2, (num_bits / num_coords)) - 1));
+        solution[i] = lower_bounded + (upper_bounded - lower_bounded) * ((double) value / (pow(2, (num_bits / num_coords)) - 1));
     }
     return solution;
 }
@@ -67,6 +68,42 @@ double fitness(vector<double> phenotype) {
     return (x*x + y*y + z*z);
 }
 
+void selection(vector<vector<int>> &population, vector<double> fitness_values) {
+    int population_size = population.size();
+    vector<pair<vector<int>, double>> population_fitness;
+    for (int i = 0; i < population_size; i++) {
+        population_fitness.push_back({population[i], fitness_values[i]});
+    }
+    sort(population_fitness.begin(), population_fitness.end(),
+         [](auto &left, auto &right) { return left.second > right.second; });
+    for (int i = 0; i < population_size; i++) {
+        population[i] = population_fitness[i].first;
+    }
+}
+
+vector<int> crossover_one_point(vector<int> parent1, vector<int> parent2) {
+    int crossover_point = rand() % parent1.size();
+    vector<int> offspring(parent1.size());
+    for (int i = 0; i < crossover_point; i++) {
+        offspring[i] = parent1[i];
+    }
+    for (int i = crossover_point; i < parent1.size(); i++) {
+        offspring[i] = parent2[i];
+    }
+    return offspring;
+}
+
+vector<int> mutation(vector<int> genotype, double mutation_probability) {
+    for (int i = 0; i < genotype.size(); i++) {
+        double random_value = ((double) rand() / (RAND_MAX));
+        if (random_value < mutation_probability) {
+            genotype[i] = (genotype[i] == 0 ? 1 : 0);
+        }
+    }
+    return genotype;
+}
+
+
 int main() {
     int index = 19727;
     int length = 100 + (index % 10) * 2;
@@ -75,6 +112,9 @@ int main() {
     for (int i = 0; i < length; i++) {
         genotype[i] = rand() % 2;
     }
+
+
+
     //genotype jest kodowany na kod Gray przez funkcję gray_encode.
     genotype = gray_encode(genotype);
     //vector<double> phenotype jest dekodowany z genotypu przez funkcję decode.
