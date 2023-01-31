@@ -42,20 +42,10 @@ cv::Mat get_object_points()
     return obj_points;
 }
 
-int player1_points = 0, player2_points = 0;
-
-void increment_points(int player) {
-    if (player == 1) {
-        player1_points++;
-    } else if (player == 2) {
-        player2_points++;
-    }
-}
-
 void show_winner() {
-    if (player1_points > player2_points) {
+    if (points > points1) {
         std::cout << "Player 1 wins!" << std::endl;
-    } else if (player2_points > player1_points) {
+    } else if (points1 > points) {
         std::cout << "Player 2 wins!" << std::endl;
     } else {
         std::cout << "It's a tie!" << std::endl;
@@ -111,7 +101,7 @@ int main()
         Mat outputImage = inputImage.clone();
         aruco::drawDetectedMarkers(detected, markerCorners, markerIds);
 
-        auto found = find(markerIds.begin(), markerIds.end(), 19);
+        auto found = find(markerIds.begin(), markerIds.end(), 0);
         if (found != markerIds.end()) {
             int foundIdx = distance(markerIds.begin(), found);
             auto found = markerCorners.at(foundIdx);
@@ -138,7 +128,7 @@ int main()
                 car_position = new_pos;
             }
         }
-        auto found1 = find(markerIds.begin(), markerIds.end(), 1);
+        auto found1 = find(markerIds.begin(), markerIds.end(), 1); //2
         if (found1 != markerIds.end()) {
             int foundIdx1 = distance(markerIds.begin(), found1);
             auto found1 = markerCorners.at(foundIdx1);
@@ -176,7 +166,7 @@ int main()
                                car_position1.val[0] - (car_image2.cols / 2),
                                car_position1.val[1] - (car_image2.rows / 2),
                                car_image2.rows, car_image2.cols));
-        car_image2.copyTo(insetImage);
+        car_image2.copyTo(insetImage1);
         for (auto goal : goals) {
             Mat insetImage(detected,
                            Rect(
@@ -201,9 +191,18 @@ int main()
                 i--;
             }
         }
-
+        for (int i = 0; i < goals.size(); i++) {
+            if (cv::norm(goals[i] - car_position1) < (goal_image.cols / 2)) {
+                points1++;
+                std::cout << points1 << std::endl;
+                goals.erase(goals.begin() + i);
+                i--;
+            }
+        }
+        putText(detected, "Score: " + to_string(points), Point(10, 50), FONT_HERSHEY_SIMPLEX, 2, Scalar(255, 0, 0), 2);
+        putText(detected, "Score: " + to_string(points1), Point(10, 475), FONT_HERSHEY_SIMPLEX, 2, Scalar(255, 0, 0), 2);
         imshow("markers", detected);
     }
-
-    return 0;
+}
+    return show_winner();
 }
