@@ -27,10 +27,9 @@ population_t generate_population(int size) {
 // Tworzenie funkcji lambda "decodeGreyCode"
 // Funkcja przyjmuje jako argument "chromosome", czyli wektor liczb typu int
 auto decodeGreyCode = [](const chromosome_t& chromosome) {
-    // Tworzenie wektora "decoded"
-    chromosome_t decoded;
+
     // Zmienna "x" używana do przechowywania wartości pierwszej połówki chromosomu, y drugiej
-    int x = 0, y = 0;
+    double x = 0, y = 0;
     // Pętla przeglądająca pierwszą połówkę chromosomu
     for (int i = 0; i < chromosome.size()/2; i++) {
         // Dodawanie do "x" wartości chromosomu powiększonej o odpowiedni wykładnik potęgi 2
@@ -41,12 +40,7 @@ auto decodeGreyCode = [](const chromosome_t& chromosome) {
         // Dodawanie do "y" wartości chromosomu powiększonej o odpowiedni wykładnik potęgi 2
         y += chromosome[i] * std::pow(2,chromosome.size()-i-1);
     }
-    // Dodanie wartości "x" do wektora "decoded"
-    decoded.push_back(x/100000000);
-    // Dodanie wartości "y" do wektora "decoded"
-    decoded.push_back(y/100000000);
-    // Zwracanie wektora "decoded"
-    return decoded;
+    return std::make_pair(x/1000000000000000,y/1000000000000000);
 };
 
 // Tworzy funkcję Ackley, która przyjmuje dwa argumenty x i y i zwraca wartość fitnes dla danych wejściowych
@@ -70,7 +64,9 @@ auto fenotype = [](const chromosome_t& chromosome) {
     // Dekodowanie genów za pomocą funkcji decodeGreyCode
     auto decoded = decodeGreyCode(chromosome);
     // Zwrócenie dekodowanej pary wartości jako wartości x i y
-    return std::pair<double,double>(decoded[0],decoded[1]);
+
+    return decoded;
+
 };
 
 //Selekcja ruletkowa:
@@ -200,7 +196,7 @@ int main() {
     std::cout << std::endl;
     //Po zakończeniu pętli for, następuje wywołanie funkcji min_element na population.begin() i population.end(), za pomocą lambda funkcji porównującej fitness dla dwóch chromosomów.
     //W wyniku, best_solution jest ustawiony na najlepszy chromosom.
-    auto best_solution = std::min_element(population.begin(), population.end(),
+    auto best_solution = std::max_element(population.begin(), population.end(),
                                           [](const chromosome_t &a, const chromosome_t &b) {
                                               return Ackley(fenotype(a).first, fenotype(a).second) <
                                                      Ackley(fenotype(b).first, fenotype(b).second);

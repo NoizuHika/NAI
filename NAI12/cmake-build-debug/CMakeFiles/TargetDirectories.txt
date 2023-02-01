@@ -1,3 +1,3 @@
-D:/Programming/NAI/NAI12/cmake-build-debug/CMakeFiles/NAI12.dir
-D:/Programming/NAI/NAI12/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Programming/NAI/NAI12/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+Z:/git/NAI/NAI12/cmake-build-debug/CMakeFiles/NAI12.dir
+Z:/git/NAI/NAI12/cmake-build-debug/CMakeFiles/edit_cache.dir
+Z:/git/NAI/NAI12/cmake-build-debug/CMakeFiles/rebuild_cache.dir

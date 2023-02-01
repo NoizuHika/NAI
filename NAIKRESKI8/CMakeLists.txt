@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(ocvdemo main.cpp)
 
 # UWAGA: TU ZAMIEN KATALOG W KTORYM JEST OPENCV!!!!
-set(OpenCV_DIR "D:\\pantadeusz\\opencv-4.x\\cmake-build-debug")
+set(OpenCV_DIR "D:\\pantadeusz\\bb\\opencv-4.x\\cmake-build-release")
 
 find_package( OpenCV REQUIRED )
 

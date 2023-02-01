@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = Z$:/git/NAIKRESKI/cmake-build-debug/
+cmake_ninja_workdir = Z$:/git/NAI/NAIKRESKI8/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target ocvdemo
 
@@ -49,9 +49,8 @@ cmake_ninja_workdir = Z$:/git/NAIKRESKI/cmake-build-debug/
 
 build cmake_object_order_depends_target_ocvdemo: phony || CMakeFiles/ocvdemo.dir
 
-build CMakeFiles/ocvdemo.dir/main.cpp.obj: CXX_COMPILER__ocvdemo_Debug Z$:/git/NAIKRESKI/main.cpp || cmake_object_order_depends_target_ocvdemo
+build CMakeFiles/ocvdemo.dir/main.cpp.obj: CXX_COMPILER__ocvdemo_Debug Z$:/git/NAI/NAIKRESKI8/main.cpp || cmake_object_order_depends_target_ocvdemo
   DEP_FILE = CMakeFiles\ocvdemo.dir\main.cpp.obj.d
-  FLAGS = -g
   INCLUDES = -isystem D:/pantadeusz/bb/opencv-4.x/cmake-build-release -isystem D:/pantadeusz/bb/opencv-4.x/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/core/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/flann/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/imgproc/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/intensity_transform/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/ml/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/phase_unwrapping/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/photo/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/plot/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/quality/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/reg/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/surface_matching/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/xphoto/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/dnn/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/dnn_superres/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/features2d/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/fuzzy/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/hfs/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/img_hash/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/imgcodecs/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/line_descriptor/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/saliency/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/text/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/videoio/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/barcode/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/calib3d/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/datasets/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/highgui/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/mcc/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/objdetect/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/rapid/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/rgbd/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/shape/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/structured_light/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/ts/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/video/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/videostab/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/wechat_qrcode/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/xfeatures2d/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/ximgproc/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/xobjdetect/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/aruco/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/bgsegm/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/bioinspired/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/ccalib/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/dnn_objdetect/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/dpm/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/face/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/gapi/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/optflow/include -isystem D:/pantadeusz/bb/opencv-4.x/modules/stitching/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/superres/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/tracking/include -isystem D:/pantadeusz/opencv_contrib-4.x/modules/stereo/include
   OBJECT_DIR = CMakeFiles\ocvdemo.dir
   OBJECT_FILE_DIR = CMakeFiles\ocvdemo.dir
@@ -65,7 +64,6 @@ build CMakeFiles/ocvdemo.dir/main.cpp.obj: CXX_COMPILER__ocvdemo_Debug Z$:/git/N
 # Link the executable ocvdemo.exe
 
 build ocvdemo.exe: CXX_EXECUTABLE_LINKER__ocvdemo_Debug CMakeFiles/ocvdemo.dir/main.cpp.obj | D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_highgui460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_videoio460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_aruco460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_imgcodecs460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_calib3d460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_features2d460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_imgproc460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_flann460.dll.a D$:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_core460.dll.a
-  FLAGS = -g
   LINK_LIBRARIES = D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_highgui460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_videoio460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_aruco460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_imgcodecs460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_calib3d460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_features2d460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_imgproc460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_flann460.dll.a  D:/pantadeusz/bb/opencv-4.x/cmake-build-release/lib/libopencv_core460.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ocvdemo.dir
   POST_BUILD = cd .
@@ -79,7 +77,7 @@ build ocvdemo.exe: CXX_EXECUTABLE_LINKER__ocvdemo_Debug CMakeFiles/ocvdemo.dir/m
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D Z:\git\NAIKRESKI\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D Z:\git\NAI\NAIKRESKI8\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -90,7 +88,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D Z:\git\NAIKRESKI\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SZ:\git\NAIKRESKI -BZ:\git\NAIKRESKI\cmake-build-debug"
+  COMMAND = cmd.exe /C "cd /D Z:\git\NAI\NAIKRESKI8\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SZ:\git\NAI\NAIKRESKI8 -BZ:\git\NAI\NAIKRESKI8\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -108,7 +106,7 @@ build ocvdemo: phony ocvdemo.exe
 # =============================================================================
 
 #############################################
-# Folder: Z:/git/NAIKRESKI/cmake-build-debug
+# Folder: Z:/git/NAI/NAIKRESKI8/cmake-build-debug
 
 build all: phony ocvdemo.exe
 

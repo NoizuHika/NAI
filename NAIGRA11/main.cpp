@@ -42,16 +42,6 @@ cv::Mat get_object_points()
     return obj_points;
 }
 
-void show_winner() {
-    if (points > points1) {
-        std::cout << "Player 1 wins!" << std::endl;
-    } else if (points1 > points) {
-        std::cout << "Player 2 wins!" << std::endl;
-    } else {
-        std::cout << "It's a tie!" << std::endl;
-    }
-}
-
 int main()
 {
     using namespace cv;
@@ -78,6 +68,7 @@ int main()
     vector<Vec2f> goals;
     int counter = 0;
     int points = 0;
+    int points1 = 0;
     while (waitKey(10) != 27) {
         Mat inputImage;
         Mat detected;
@@ -101,7 +92,7 @@ int main()
         Mat outputImage = inputImage.clone();
         aruco::drawDetectedMarkers(detected, markerCorners, markerIds);
 
-        auto found = find(markerIds.begin(), markerIds.end(), 0);
+        auto found = find(markerIds.begin(), markerIds.end(), 19);
         if (found != markerIds.end()) {
             int foundIdx = distance(markerIds.begin(), found);
             auto found = markerCorners.at(foundIdx);
@@ -203,6 +194,17 @@ int main()
         putText(detected, "Score: " + to_string(points1), Point(10, 475), FONT_HERSHEY_SIMPLEX, 2, Scalar(255, 0, 0), 2);
         imshow("markers", detected);
     }
+
+    if (points > points1) {
+        std::cout << "Player 1 wins!" << std::endl;
+    } else if (points1 > points) {
+        std::cout << "Player 2 wins!" << std::endl;
+    } else {
+        std::cout << "It's a tie!" << std::endl;
+    }
+
+    return 0;
 }
-    return show_winner();
-}
+
+
+
