@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ocvdemo"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\pantadeusz\;CMake Files\pantadeusz\bb\;CMake Files\pantadeusz\bb\opencv-4.x\;CMake Files\pantadeusz\bb\opencv-4.x\cmake-build-release\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="Z:/git/NAI/NAIGRA11/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ocvdemo">
+				<Option output="Z:/git/NAI/NAIGRA11/cmake-build-debug/ocvdemo.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="Z:/git/NAI/NAIGRA11/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/cmake-build-release"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/core/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/flann/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/imgproc/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/intensity_transform/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/ml/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/phase_unwrapping/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/photo/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/plot/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/quality/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/reg/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/surface_matching/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/xphoto/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/dnn/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/dnn_superres/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/features2d/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/fuzzy/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/hfs/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/img_hash/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/imgcodecs/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/line_descriptor/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/saliency/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/text/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/videoio/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/barcode/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/calib3d/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/datasets/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/highgui/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/mcc/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/objdetect/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/rapid/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/rgbd/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/shape/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/structured_light/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/ts/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/video/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/videostab/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/wechat_qrcode/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/xfeatures2d/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/ximgproc/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/xobjdetect/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/aruco/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/bgsegm/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/bioinspired/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/ccalib/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/dnn_objdetect/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/dpm/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/face/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/gapi/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/optflow/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/stitching/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/superres/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/tracking/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/stereo/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 ocvdemo"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ocvdemo/fast">
+				<Option output="Z:/git/NAI/NAIGRA11/cmake-build-debug/ocvdemo.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="Z:/git/NAI/NAIGRA11/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/cmake-build-release"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/core/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/flann/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/imgproc/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/intensity_transform/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/ml/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/phase_unwrapping/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/photo/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/plot/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/quality/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/reg/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/surface_matching/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/xphoto/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/dnn/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/dnn_superres/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/features2d/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/fuzzy/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/hfs/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/img_hash/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/imgcodecs/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/line_descriptor/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/saliency/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/text/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/videoio/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/barcode/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/calib3d/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/datasets/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/highgui/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/mcc/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/objdetect/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/rapid/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/rgbd/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/shape/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/structured_light/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/ts/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/video/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/videostab/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/wechat_qrcode/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/xfeatures2d/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/ximgproc/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/xobjdetect/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/aruco/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/bgsegm/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/bioinspired/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/ccalib/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/dnn_objdetect/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/dpm/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/face/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/gapi/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/optflow/include"/>
+					<Add directory="D:/pantadeusz/bb/opencv-4.x/modules/stitching/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/superres/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/tracking/include"/>
+					<Add directory="D:/pantadeusz/opencv_contrib-4.x/modules/stereo/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2022.2.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 ocvdemo/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="Z:/git/NAI/NAIGRA11/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="Z:/git/NAI/NAIGRA11/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;Z:/git/NAI/NAIGRA11/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="Z:/git/NAI/NAIGRA11/main.cpp">
+			<Option target="ocvdemo"/>
+		</Unit>
+		<Unit filename="Z:/git/NAI/NAIGRA11/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="Z:/git/NAI/NAIGRA11/pantadeusz/bb/opencv-4.x/cmake-build-release/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\pantadeusz\bb\opencv-4.x\cmake-build-release\"/>
+		</Unit>
+		<Unit filename="Z:/git/NAI/NAIGRA11/pantadeusz/bb/opencv-4.x/cmake-build-release/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\pantadeusz\bb\opencv-4.x\cmake-build-release\"/>
+		</Unit>
+		<Unit filename="Z:/git/NAI/NAIGRA11/pantadeusz/bb/opencv-4.x/cmake-build-release/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\pantadeusz\bb\opencv-4.x\cmake-build-release\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
