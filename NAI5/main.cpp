@@ -177,20 +177,6 @@ int main() {
         generation++;
     }
 
-    //Zmienna fitnesses jest tworzona jako wektor z population.size() elementami.
-    std::vector<chromosome_t> fitnesses(population.size());
-
-    //Zmienna new_population jest tworzona jako wektor z population.size() elementami.
-    std::vector<chromosome_t> new_population(population.size());
-    //Funkcja roulette_selection jest wywoływana na fitnesses, a wynik jest przypisywany do p1.
-    // Funkcja roulette_selection jest wywoływana ponownie na fitnesses, a wynik jest przypisywany do p2.
-    // Adresy p1, p2 i new_population[i] są wypisywane na standardowe wyjście.
-    for (int i = 0; i < population.size(); i++) {
-        std::vector<chromosome_t> p1 = roulette_selection(fitnesses);
-        std::vector<chromosome_t> p2 = roulette_selection(fitnesses);
-        std::cout << "parent1: " << &p1 << " parent2: " << &p2  << " mutated: " << &new_population[i] << std::endl;
-    }
-
     //Zmienna best_fitness jest ustawiona na std::numeric_limits<double>::max().
     // Zmienna best_chromosome jest definiowana jako pusty wektor.
     double best_fitness = std::numeric_limits<double>::max();
@@ -227,7 +213,6 @@ int main() {
     for (const auto &gene : best_chromosome) {
         std::cout << gene << " ";
     }
-    std::cout << "with fitness: " << best_fitness << std::endl;
 
     return 0;
 
